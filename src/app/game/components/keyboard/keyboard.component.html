@@ -1,0 +1,6 @@
+<div>
+    <button *ngFor="let character of displayedCharacters$ | async">
+        {{ character.character }}
+        {{ character.isEnabled }}
+    </button>
+</div>
