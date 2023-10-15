@@ -1,26 +1,29 @@
 import { createReducer, on } from "@ngrx/store";
-import { keyPressed } from "./game.actions";
-import { ALPHABET } from "../../components/keyboard/models/alphabet.const";
-import { KeyboardCharacter } from "../../components/keyboard/models/keyboard-character.interface";
+import { setSolutionWord, setTryLimit } from "./game.actions";
 
 export interface GameState {
-    pressedKeys: string[];
     solutionWord: string;
     tryCounter: number;
+    tryLimit: number;
     gameStatus: 'win' | 'lose' | 'ongoing';
 }
 
 export const initState: GameState = {
-    pressedKeys: [],
     solutionWord: '',
     tryCounter: 0,
+    tryLimit: 0,
     gameStatus: 'ongoing'
 }
 
 export const gameReducer = createReducer(
     initState,
-    on(keyPressed, (state, { currentPressedKey }) => ({
+    on(setSolutionWord, (state, { solution }) => ({
         ...state,
-        pressedKeys: [...state.pressedKeys, currentPressedKey]
+        solutionWord: solution
+    })),
+
+    on(setTryLimit, (state, {limit}) => ({
+        ...state,
+        tryLimit: limit
     }))
 )

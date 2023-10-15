@@ -3,7 +3,8 @@ import { AppState } from "../app.state";
 import { GameState } from "./game.reducer";
 
 export const selectGame = (state: AppState) => state.game;
-export const selectPressedKeys = createSelector(
+
+export const selectSolution = createSelector(
     selectGame,
-    (state: GameState) => state.pressedKeys
+    (state: GameState) => state.solutionWord
 )

@@ -1,6 +1,5 @@
 <div>
-    <button *ngFor="let character of displayedCharacters$ | async">
+    <button *ngFor="let character of displayedCharacters$ | async" [disabled]="!character.isEnabled">
         {{ character.character }}
-        {{ character.isEnabled }}
     </button>
 </div>
