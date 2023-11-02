@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/state/app.state';
+import { incrementTryCounter } from 'src/app/state/game/game.actions';
 import { keyPressed } from 'src/app/state/keyboard/keyboard.actions';
 import { selectDisplayedKeys } from 'src/app/state/keyboard/keyboard.selector';
 

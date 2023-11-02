@@ -18,3 +18,8 @@ export const selectLengthOfSolution = createSelector(
     selectGame,
     (state: GameState) => state.lengthOfSolutionWord
 )
+
+export const selectTryCounter = createSelector(
+    selectGame,
+    (state: GameState) => state.tryCounter
+)

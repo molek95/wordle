@@ -24,6 +24,7 @@ export class SolutionPanelComponent implements OnInit {
   readonly guessLetter$ = this.pressedKeys$.pipe(
     withLatestFrom(this.solution$),
     map(([pressedKeys, solution]) => {
+      console.log({pressedKeys})
       return solution.map(s => {
         if (pressedKeys.includes(s.letter)) {
           s.isCorrect = true

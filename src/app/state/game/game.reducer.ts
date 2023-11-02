@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { loadSolutionWord, loadSolutionWordFailure, loadSolutionWordSuccess, setLengthOfWord, setSolutionWord, setTryLimit } from "./game.actions";
+import { incrementTryCounter, loadSolutionWord, loadSolutionWordFailure, loadSolutionWordSuccess, setGameStatus, setLengthOfWord, setSolutionWord, setTryLimit } from "./game.actions";
 
 export enum WordStatus {
     success =  'success',
@@ -8,12 +8,18 @@ export enum WordStatus {
     pending = 'pending'
 }
 
+export enum GameStatus {
+    win = 'win',
+    lose = 'lose',
+    ongoing = 'ongoing'
+}
+
 export interface GameState {
     solutionWord: string;
     lengthOfSolutionWord: number;
     tryCounter: number;
     tryLimit: number;
-    gameStatus: 'win' | 'lose' | 'ongoing';
+    gameStatus: GameStatus;
     wordStatus: WordStatus;
 }
 
@@ -22,7 +28,7 @@ export const initState: GameState = {
     lengthOfSolutionWord: 0,
     tryCounter: 0,
     tryLimit: 0,
-    gameStatus: 'ongoing',
+    gameStatus: GameStatus.ongoing,
     wordStatus: WordStatus.pending,
 }
 
@@ -47,5 +53,7 @@ export const gameReducer = createReducer(
         error: null,
         wordStatus: WordStatus.success
     })),
-    on(loadSolutionWordFailure, (state, {error}) => ({...state, error, wordStatus: WordStatus.error}))
+    on(loadSolutionWordFailure, (state, {error}) => ({...state, error, wordStatus: WordStatus.error})),
+    on(setGameStatus, (state, {gameStatus}) => ({...state, gameStatus})),
+    on(incrementTryCounter, (state, {increment}) => ({...state, tryCounter: state.tryCounter + increment}))
 )

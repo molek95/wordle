@@ -1,4 +1,5 @@
 import { createAction, props } from "@ngrx/store";
+import { GameStatus } from "./game.reducer";
 
 export const statusChanged = createAction(
     '[Game Page] Game status changed',
@@ -30,4 +31,15 @@ export const loadSolutionWordSuccess = createAction(
 export const loadSolutionWordFailure = createAction(
     '[Game Page] Solution word load failed',
     props<{error: string}>()
+)
+
+export const setGameStatus = createAction(
+    '[Game Page] Game is won',
+    props<{gameStatus: GameStatus}>()
+)
+
+
+export const incrementTryCounter = createAction(
+    '[Game Page] Increment try couter',
+    props<{increment: number}>()
 )
