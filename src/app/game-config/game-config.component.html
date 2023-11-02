@@ -1,1 +1,12 @@
-<p>game-config works!!</p>
+<div>
+    <p>Game Settings</p>
+    <form [formGroup]="gameForm" (ngSubmit)="onSubmit()">
+        <label for="length-of-word">Length of word:</label>
+        <input id="length-of-word" type="number" formControlName="lengthOfWord">
+        
+        <label for="number-of-tries">Number of tries:</label>
+        <input id="number-of-tries" type="number" formControlName="numberOfTries">
+
+        <button type="submit" [disabled]="!gameForm.valid">Setup Game!</button>
+    </form>
+</div>

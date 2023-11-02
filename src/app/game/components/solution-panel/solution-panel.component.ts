@@ -24,7 +24,6 @@ export class SolutionPanelComponent implements OnInit {
   readonly guessLetter$ = this.pressedKeys$.pipe(
     withLatestFrom(this.solution$),
     map(([pressedKeys, solution]) => {
-      console.log({pressedKeys, solution})
       return solution.map(s => {
         if (pressedKeys.includes(s.letter)) {
           s.isCorrect = true
@@ -37,7 +36,5 @@ export class SolutionPanelComponent implements OnInit {
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.pressedKeys$.subscribe(k => console.log({k}))
-    this.guessLetter$.subscribe(guess => console.log({guess}))
   }
 }
