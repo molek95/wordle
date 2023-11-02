@@ -38,8 +38,6 @@ export class GameConfigComponent {
     this.router.navigate(['/game']).then(() => {
       this.store.dispatch(setTryLimit({limit: this.gameForm.controls.numberOfTries.value as any}))
       this.store.dispatch(setLengthOfWord({length: this.gameForm.controls.lengthOfWord.value as any}))
-      this.store.dispatch(loadSolutionWord());
-      // this.store.dispatch(setSolutionWord({solution: 'apple'}))
     })
   }
 }

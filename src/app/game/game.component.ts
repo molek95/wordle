@@ -19,7 +19,6 @@ export class GameComponent implements OnInit {
   }
  
   ngOnInit(): void {
-    console.log('init')
     this.store.dispatch(loadSolutionWord());
   }
 
