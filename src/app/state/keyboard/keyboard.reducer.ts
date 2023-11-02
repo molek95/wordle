@@ -1,7 +1,7 @@
 import { createReducer, on } from "@ngrx/store";
-import { ALPHABET } from "../../components/keyboard/models/alphabet.const";
-import { KeyboardCharacter } from "../../components/keyboard/models/keyboard-character.interface";
 import { keyPressed } from "./keyboard.actions";
+import { KeyboardCharacter } from "src/app/game/components/keyboard/models/keyboard-character.interface";
+import { ALPHABET } from "src/app/game/components/keyboard/models/alphabet.const";
 
 export interface  KeyboardState {
     pressedKeys: string[];

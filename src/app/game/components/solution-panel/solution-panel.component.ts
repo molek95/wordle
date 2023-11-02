@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AppState } from '../../state/app.state';
 import { Store } from '@ngrx/store';
-import { selectPressedKeys } from '../../state/keyboard/keyboard.selector';
-import { selectSolution } from '../../state/game/game.selector';
 import { map, withLatestFrom } from 'rxjs/operators';
+import { AppState } from 'src/app/state/app.state';
+import { selectSolution } from 'src/app/state/game/game.selector';
+import { selectPressedKeys } from 'src/app/state/keyboard/keyboard.selector';
 
 @Component({
   selector: 'app-solution-panel',
@@ -11,14 +11,15 @@ import { map, withLatestFrom } from 'rxjs/operators';
   styleUrls: ['./solution-panel.component.scss']
 })
 export class SolutionPanelComponent implements OnInit {
-  readonly pressedKeys$  = this.store.select(selectPressedKeys)
+  readonly pressedKeys$  = this.store.select(selectPressedKeys);
+
   readonly solution$ = this.store.select(selectSolution).pipe(map(solution => {
     const letters = solution.split('');
     return letters.map(letter => ({
       letter,
       isCorrect: false
     })) 
-  }))
+  }));
 
   readonly guessLetter$ = this.pressedKeys$.pipe(
     withLatestFrom(this.solution$),

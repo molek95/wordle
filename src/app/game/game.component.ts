@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from './state/app.state';
-import { setSolutionWord } from './state/game/game.actions';
-import { selectSolution } from './state/game/game.selector';
+import { selectSolution } from '../state/game/game.selector';
+import { AppState } from '../state/app.state';
+import { setSolutionWord } from '../state/game/game.actions';
 
 @Component({
   selector: 'app-game',

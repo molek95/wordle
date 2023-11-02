@@ -1,8 +1,8 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from '../../state/app.state';
-import { selectDisplayedKeys } from '../../state/keyboard/keyboard.selector';
-import { keyPressed } from '../../state/keyboard/keyboard.actions';
+import { AppState } from 'src/app/state/app.state';
+import { keyPressed } from 'src/app/state/keyboard/keyboard.actions';
+import { selectDisplayedKeys } from 'src/app/state/keyboard/keyboard.selector';
 
 @Component({
   selector: 'app-keyboard',
