@@ -1,3 +1,10 @@
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
@@ -10,6 +17,14 @@ import { loadSolutionWord, setLengthOfWord, setTryLimit } from '../state/game/ga
   selector: 'app-game-config',
   templateUrl: './game-config.component.html',
   styleUrls: ['./game-config.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatFormFieldModule, MatInputModule
+  ],
 })
 export class GameConfigComponent {
   readonly gameForm = this.fb.group({

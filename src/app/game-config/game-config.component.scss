@@ -1,0 +1,21 @@
+mat-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+mat-card {
+    background-color: white;
+}
+
+mat-form-field {
+    padding: 10px;
+}
+
+.main-div {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+}

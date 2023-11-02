@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: 'game-config',
-    loadChildren: () => import('./game-config/game-config.module').then(m => m.GameConfigModule)
+    loadChildren  : () => import('./game-config/game-config.routes').then(m => m.GAME_CONFIG_ROUTES)
   },
   {
     path: '',

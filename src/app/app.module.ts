@@ -8,6 +8,7 @@ import { gameReducer } from './state/game/game.reducer';
 import { keyboardReducer } from './state/keyboard/keyboard.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { GameEffects } from './state/game/game.effects';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { GameEffects } from './state/game/game.effects';
     AppRoutingModule,
     StoreModule.forRoot({game: gameReducer, keyboard: keyboardReducer}),
     EffectsModule.forRoot([GameEffects]),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

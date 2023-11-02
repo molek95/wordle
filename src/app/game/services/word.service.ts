@@ -6,7 +6,6 @@ import { WORD_COLLECTIONS } from "./words.const";
 export class WordService {
 
     getWord(length: number): Observable<string> {
-        console.log('getWord')
         const wordWithGivenLength = WORD_COLLECTIONS.filter(word => word.length === length);
         return of(wordWithGivenLength[Math.floor(Math.random()*wordWithGivenLength.length)])
     }
