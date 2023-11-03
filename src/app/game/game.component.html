@@ -1,3 +1,19 @@
-<app-solution-panel></app-solution-panel>
-<app-keyboard></app-keyboard>
-<button (click)="getSoultion()">GET SOLUTION</button>
+<div class="main-div">
+    <mat-card>
+        <mat-card-header>Game</mat-card-header>
+        <mat-card-content>
+            <div>
+                Try Limit: {{tryLimit$ | async}}
+                Try Counter: {{tryCouter$ | async}}
+                Game State: {{gameStatus$ | async}}
+            </div>
+            <div></div>
+            <app-solution-panel></app-solution-panel>
+            <app-keyboard></app-keyboard>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-stroked-button color="primary" (click)="getSoultion()">GET SOLUTION</button>
+            <button mat-stroked-button color="accent" (click)="resetGame()">New Game</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

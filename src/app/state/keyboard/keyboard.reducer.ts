@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { keyPressed } from "./keyboard.actions";
+import { disableKeyboard, keyPressed, resetKeyboard } from "./keyboard.actions";
 import { KeyboardCharacter } from "src/app/game/components/keyboard/models/keyboard-character.interface";
 import { ALPHABET } from "src/app/game/components/keyboard/models/alphabet.const";
 
@@ -25,5 +25,13 @@ export const keyboardReducer = createReducer(
             }
             return currentKey;
         })
+    })),
+    on(resetKeyboard, (state) => ({...state, 
+        pressedKeys: [],
+        displayedKeys: ALPHABET.map(letter => ({character: letter, isEnabled: true}))
+    })),
+    on(disableKeyboard, (state) => ({
+        ...state,
+        displayedKeys: ALPHABET.map(letter => ({character: letter, isEnabled: false}))
     }))
 )

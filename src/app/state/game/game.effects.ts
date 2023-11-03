@@ -41,10 +41,10 @@ export class GameEffects {
             ofType(keyPressed),
             withLatestFrom(this.solution$),
             map(([keyPressed,solution]) => {
-                console.log('effect')
                 if (solution.includes(keyPressed.currentPressedKey)) {
                     return incrementTryCounter({increment: 0})
                 } else {
+                    console.log('increase')
                     return incrementTryCounter({increment: 1})
                 }
             })
@@ -56,6 +56,7 @@ export class GameEffects {
             ofType(keyPressed),
             withLatestFrom(this.tryLimit$, this.solution$, this.pressedKeys$, this.tryCounter$),
             map(([, tryLimit, solution, pressedKeys, tryCounter]) => {
+                console.log({tryLimit, solution, pressedKeys, tryCounter})
                 const solutionLetters = solution.split('');
                 if (tryCounter <= tryLimit && solutionLetters.every(key => pressedKeys.includes(key))) {
                     console.log('win')

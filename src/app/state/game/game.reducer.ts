@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { incrementTryCounter, loadSolutionWord, loadSolutionWordFailure, loadSolutionWordSuccess, setGameStatus, setLengthOfWord, setSolutionWord, setTryLimit } from "./game.actions";
+import { incrementTryCounter, loadSolutionWord, loadSolutionWordFailure, loadSolutionWordSuccess, resetGame, setGameStatus, setLengthOfWord, setSolutionWord, setTryLimit } from "./game.actions";
 
 export enum WordStatus {
     success =  'success',
@@ -55,5 +55,6 @@ export const gameReducer = createReducer(
     })),
     on(loadSolutionWordFailure, (state, {error}) => ({...state, error, wordStatus: WordStatus.error})),
     on(setGameStatus, (state, {gameStatus}) => ({...state, gameStatus})),
-    on(incrementTryCounter, (state, {increment}) => ({...state, tryCounter: state.tryCounter + increment}))
+    on(incrementTryCounter, (state, {increment}) => ({...state, tryCounter: state.tryCounter + increment})),
+    on(resetGame, (state) => ({...state, initState}))
 )

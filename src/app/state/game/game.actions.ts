@@ -38,8 +38,14 @@ export const setGameStatus = createAction(
     props<{gameStatus: GameStatus}>()
 )
 
+export const  loadGameStatus = createAction('Load game status')
+
 
 export const incrementTryCounter = createAction(
     '[Game Page] Increment try couter',
     props<{increment: number}>()
+)
+
+export const resetGame = createAction(
+    '[Game Page] Reset game',
 )

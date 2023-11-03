@@ -23,3 +23,8 @@ export const selectTryCounter = createSelector(
     selectGame,
     (state: GameState) => state.tryCounter
 )
+
+export const selectGameStatus = createSelector(
+    selectGame,
+    (state: GameState) => state.gameStatus
+)

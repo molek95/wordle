@@ -11,7 +11,7 @@ import { Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from '../state/app.state';
-import { loadSolutionWord, setLengthOfWord, setTryLimit } from '../state/game/game.actions';
+import { setLengthOfWord, setTryLimit } from '../state/game/game.actions';
 
 @Component({
   selector: 'app-game-config',
